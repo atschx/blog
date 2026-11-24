@@ -1,0 +1,15 @@
+{% assign excerpt_text = "" %}
+{% assign excerpt_source = include.post.content | default: post.content %}
+{% assign excerpt_paragraphs = excerpt_source | split: "</p>" %}
+{% for excerpt_paragraph in excerpt_paragraphs %}
+  {% assign excerpt_candidate = excerpt_paragraph | strip_html | normalize_whitespace | strip %}
+  {% if excerpt_candidate != "" and excerpt_text == "" %}
+    {% assign excerpt_text = excerpt_candidate | truncate: 160 %}
+  {% endif %}
+{% endfor %}
+{% if excerpt_text == "" %}
+  {% assign excerpt_fallback = excerpt_source | strip_html | normalize_whitespace | strip %}
+  {% if excerpt_fallback != "" %}
+    {% assign excerpt_text = excerpt_fallback | truncate: 160 %}
+  {% endif %}
+{% endif %}

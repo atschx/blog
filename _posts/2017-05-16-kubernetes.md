@@ -4,6 +4,8 @@ title:  Kubernetes Intro
 author: Albert
 date:   2017-05-16 20:20:30
 categories: tech
+permalink: /tech/2017/05/16/kubernetes.html
+display_date: 2017-05-16
 ---
 
 # Kubernetes

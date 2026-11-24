@@ -1,0 +1,21 @@
+<script>
+(function () {
+  var stored = null;
+  try {
+    stored = window.localStorage.getItem("theme");
+  } catch (e) {
+    stored = null;
+  }
+  var theme = "light";
+  try {
+    if (stored === "light" || stored === "dark") {
+      theme = stored;
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      theme = "dark";
+    }
+  } catch (e) {
+    theme = "light";
+  }
+  document.documentElement.setAttribute("data-theme", theme);
+})();
+</script>

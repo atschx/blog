@@ -5,6 +5,8 @@ date: 2015-01-20 16:39:02+00:00
 layout: post
 title: Redis compile install
 categories: work
+permalink: /work/2015/01/20/redis-compile-install.html
+display_date: 2015-01-20
 ---
 
 > 准备环境：ubuntu 14.04.1(trusty)

@@ -4,6 +4,8 @@ date: 2015-07-18 23:00:00
 layout: post
 title: ZooKeeper
 categories: tech
+permalink: /tech/2015/07/18/ops-zookeeper.html
+display_date: 2015-07-18
 ---
 
 # ZooKeeper

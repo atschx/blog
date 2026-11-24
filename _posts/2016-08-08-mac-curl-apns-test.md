@@ -4,6 +4,8 @@ title:  MAC下使用 curl+nghttp2 测试APNs
 author: Albert
 date:   2016-08-08 23:30:35
 categories: tech
+permalink: /tech/2016/08/08/mac-curl-apns-test.html
+display_date: 2016-08-08
 ---
 
 > 备注: 用于后续调试，最后更新 2017-01-09 备注 curl version 差异

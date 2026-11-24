@@ -4,6 +4,8 @@ date: 2015-04-03 23:33:23+00:00
 layout: post
 title: WebSocket·Notes
 categories: tech
+permalink: /tech/2015/04/03/Websocket.html
+display_date: 2015-04-03
 ---
 
 > 一名coder写代码是本能，用文字记住走过的路 —— 这世界我来过。就此刻·深夜，空气冷却下来...

@@ -1,23 +1,135 @@
 ---
 layout: default
 ---
+{% assign featured_posts = site.posts | where_exp: "post", "post.featured == true" %}
+{% assign featured_count = featured_posts | size %}
+{% if featured_count == 0 %}
+  {% assign featured_posts = site.posts | slice: 0, 3 %}
+  {% assign featured_count = featured_posts | size %}
+{% endif %}
+
+{% assign max_tag_count = 0 %}
+{% for category in site.categories %}
+  {% assign category_count = category[1] | size %}
+  {% if category_count > max_tag_count %}
+    {% assign max_tag_count = category_count %}
+  {% endif %}
+{% endfor %}
+{% for tag in site.tags %}
+  {% assign tag_count = tag[1] | size %}
+  {% if tag_count > max_tag_count %}
+    {% assign max_tag_count = tag_count %}
+  {% endif %}
+{% endfor %}
 
 <div class="home">
+  <h1 class="visually-hidden">{{ site.title }} 文章</h1>
 
-  <h1 class="page-heading">Posts</h1>
+  <div class="home-layout">
+    <div class="home-main">
+      <section class="hero-section" aria-labelledby="featured-heading">
+        <h2 id="featured-heading" class="home-section-title">精选文章</h2>
+        <div class="hero-grid">
+          {% for post in featured_posts %}
+            {% include first-excerpt.html %}
+            {% include post-ymd.html dated=post %}
+            {% assign card_label = post.categories.first | default: post.tags.first %}
+            {% if forloop.first %}
+          <a class="hero-card hero-card--lead" href="{{ post.url | relative_url }}">
+            <p class="hero-card__meta">
+              <time datetime="{{ post_ymd }}">{{ post_ymd }}</time>
+              {% if post.author %} · {{ post.author }}{% endif %}
+            </p>
+            <h3 class="hero-card__title">{{ post.title }}</h3>
+            {% if excerpt_text != "" %}
+            <p class="hero-card__excerpt">{{ excerpt_text }}</p>
+            {% endif %}
+            {% if card_label %}
+            <span class="post-chip">{{ card_label }}</span>
+            {% endif %}
+          </a>
+              {% if featured_count > 1 %}
+          <div class="hero-pair">
+              {% endif %}
+            {% else %}
+          <a class="hero-card" href="{{ post.url | relative_url }}">
+            <p class="hero-card__meta">
+              <time datetime="{{ post_ymd }}">{{ post_ymd }}</time>
+              {% if post.author %} · {{ post.author }}{% endif %}
+            </p>
+            <h3 class="hero-card__title">{{ post.title }}</h3>
+            {% if excerpt_text != "" %}
+            <p class="hero-card__excerpt">{{ excerpt_text }}</p>
+            {% endif %}
+            {% if card_label %}
+            <span class="post-chip">{{ card_label }}</span>
+            {% endif %}
+          </a>
+              {% if forloop.last %}
+          </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <section class="post-index" aria-labelledby="all-posts-heading">
+        <h2 id="all-posts-heading" class="home-section-title">更多文章</h2>
+        <ul class="post-list post-list--compact">
+          {% for post in site.posts %}
+            {% assign is_featured = false %}
+            {% for featured in featured_posts %}
+              {% if featured.url == post.url %}
+                {% assign is_featured = true %}
+              {% endif %}
+            {% endfor %}
+            {% unless is_featured %}
+              {% include post-ymd.html dated=post %}
+              {% assign row_label = post.categories.first | default: post.tags.first %}
+          <li>
+            <a class="post-row" href="{{ post.url | relative_url }}">
+              <span class="post-row__date">
+                <time datetime="{{ post_ymd }}">{{ post_ymd }}</time>
+              </span>
+              <span class="post-row__title">{{ post.title }}</span>
+              {% if row_label %}
+              <span class="post-row__tag">{{ row_label }}</span>
+              {% endif %}
+            </a>
+          </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+        <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
+      </section>
+    </div>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+    <aside class="home-sidebar" aria-labelledby="tag-cloud-heading">
+      <h2 id="tag-cloud-heading" class="home-section-title">技术标签</h2>
+      <ul class="tag-cloud">
+        {% capture weighted_cloud %}{% for category in site.categories %}{{ category[1] | size | prepend: '00000' | slice: -5, 5 }}##{{ category[0] }}||{% endfor %}{% for tag in site.tags %}{% assign already = false %}{% for category in site.categories %}{% if category[0] == tag[0] %}{% assign already = true %}{% endif %}{% endfor %}{% unless already %}{{ tag[1] | size | prepend: '00000' | slice: -5, 5 }}##{{ tag[0] }}||{% endunless %}{% endfor %}{% endcapture %}
+        {% assign weighted_items = weighted_cloud | split: '||' | sort | reverse %}
+        {% for item in weighted_items %}
+          {% if item contains '##' %}
+            {% assign parts = item | split: '##' %}
+            {% assign label = parts[1] %}
+            {% assign count = site.categories[label] | size %}
+            {% if count == 0 %}
+              {% assign count = site.tags[label] | size %}
+            {% endif %}
+            {% assign weight = 1 %}
+            {% if max_tag_count > 0 and count == max_tag_count %}
+              {% assign weight = 3 %}
+            {% elsif count >= 2 %}
+              {% assign weight = 2 %}
+            {% endif %}
+        <li class="tag-cloud__item">
+          <a class="tag-cloud__link tag-weight-{{ weight }}" href="{{ '/' | relative_url }}?q={{ label | url_encode }}" title="{{ label }}（{{ count }}）">{{ label }}</a>
+        </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
 </div>
