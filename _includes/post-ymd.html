@@ -1,0 +1,4 @@
+{% assign post_ymd = include.dated.display_date %}
+{% if post_ymd == nil or post_ymd == empty %}
+  {% assign post_ymd = include.dated.date | date: "%Y-%m-%d" %}
+{% endif %}

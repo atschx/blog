@@ -4,6 +4,8 @@ date: 2015-04-04 17:33:10+00:00
 layout: post
 title: AngularJS
 categories: tech
+permalink: /tech/2015/04/04/AngularJS-RSS.html
+display_date: 2015-04-04
 ---
 
 ![angularJS]({{ site.baseurl }}/assets/images/AngularJS-large.png)

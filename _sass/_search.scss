@@ -1,0 +1,228 @@
+/**
+ * Site-wide client-side search
+ */
+.site-search {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.site-search__form {
+    margin: 0;
+}
+
+.site-search__field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 228px;
+    height: 40px;
+    padding: 0 12px;
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-input, 8px);
+    color: var(--color-input-text);
+
+    &:focus-within {
+        border-color: var(--color-focus);
+        box-shadow: 0 0 0 3px var(--color-focus-ring);
+    }
+}
+
+.site-search__icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    color: var(--color-text-muted);
+}
+
+.site-search__input {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-input-text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    border-radius: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+}
+
+.site-search__clear {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0 2px;
+    border: 0;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+
+    &[hidden] {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--color-accent);
+    }
+}
+
+.site-search__results {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 360px;
+    max-height: 70vh;
+    overflow-y: auto;
+    margin: 0;
+    padding: 8px;
+    background: var(--color-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    box-shadow: var(--color-card-shadow);
+
+    &[hidden] {
+        display: none;
+    }
+}
+
+.site-search__status {
+    padding: 6px 10px 8px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+
+    &:empty {
+        display: none;
+    }
+}
+
+.site-search__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-search__result {
+    margin: 0;
+}
+
+.site-search__result-link {
+    display: block;
+    min-height: 44px;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--color-text);
+    box-sizing: border-box;
+
+    &:visited {
+        color: var(--color-text);
+    }
+
+    &:hover,
+    &:focus,
+    &[aria-selected="true"] {
+        background: var(--color-accent-soft);
+        color: var(--color-text);
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+.site-search__result-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0 0 2px;
+}
+
+.site-search__result-meta {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.site-search__highlight {
+    background: transparent;
+    color: inherit;
+    font-weight: 600;
+    box-shadow: inset 0 -2px 0 var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    padding: 0;
+    border-radius: 0;
+}
+
+@include media-query($on-palm) {
+    .header-bar {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+        gap: 12px 10px;
+        padding: 14px 0 16px;
+        min-height: 0;
+    }
+
+    .header-tools {
+        display: contents;
+        margin-left: 0;
+    }
+
+    .site-title {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .theme-toggle {
+        grid-column: 2;
+        grid-row: 1;
+        width: 44px;
+        height: 44px;
+    }
+
+    .site-nav {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .site-search {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+    }
+
+    .site-search__field {
+        width: 100%;
+        height: 44px;
+    }
+
+    .site-search__results {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}

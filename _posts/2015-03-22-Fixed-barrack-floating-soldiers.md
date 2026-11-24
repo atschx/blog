@@ -3,6 +3,8 @@ layout: post
 title:  "铁打的营盘，流水的兵"
 date:   2015-03-22 23:15:35
 categories: work
+permalink: /work/2015/03/22/Fixed-barrack-floating-soldiers.html
+display_date: 2015-03-22
 ---
 > Remember what should be remembered, and forget what should be forgotten. Alter what is changeable, and accept what is immutable
 

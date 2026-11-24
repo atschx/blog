@@ -5,6 +5,8 @@ layout: post
 title: mysql(percona)
 categories: mysql
 tags: linux mysql
+permalink: /mysql/2015/01/19/mysql-percona.html
+display_date: 2015-01-19
 ---
 
 ## percona-server

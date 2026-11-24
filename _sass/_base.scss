@@ -1,6 +1,12 @@
 /**
  * Reset some basic elements
  */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -14,13 +20,15 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font-family: $base-font-family;
+    font-family: var(--font-sans, #{$base-font-family});
     font-size: $base-font-size;
     line-height: $base-line-height;
-    font-weight: 300;
-    color: $text-color;
-    background-color: $background-color;
+    font-weight: 400;
+    color: var(--color-text, #{$text-color});
+    background-color: var(--color-bg, #{$background-color});
     -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
@@ -80,7 +88,8 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-family: var(--font-serif);
+    font-weight: 600;
 }
 
 
@@ -89,15 +98,15 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: var(--color-accent, #{$brand-color});
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: var(--color-accent, #{$brand-color});
     }
 
     &:hover {
-        color: $text-color;
+        color: var(--color-accent-hover, #{$text-color});
         text-decoration: underline;
     }
 }
@@ -108,8 +117,8 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: var(--color-text-muted, #{$grey-color});
+    border-left: 4px solid var(--color-border, #{$grey-color-light});
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
@@ -127,10 +136,11 @@ blockquote {
  */
 pre,
 code {
+    font-family: var(--font-mono);
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid var(--color-code-border, #{$grey-color-light});
     border-radius: 3px;
-    background-color: #eef;
+    background-color: var(--color-code-bg, #EFEAE2);
 }
 
 code {
@@ -154,19 +164,16 @@ pre {
  * Wrapper
  */
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width: var(--content-width, #{$content-width});
     margin-right: auto;
     margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
+    padding-right: 32px;
+    padding-left: 32px;
     @extend %clearfix;
 
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
+    @include media-query($on-palm) {
+        padding-right: 20px;
+        padding-left: 20px;
     }
 }
 
@@ -198,7 +205,7 @@ pre {
         vertical-align: middle;
 
         path {
-            fill: $grey-color;
+            fill: var(--color-text-muted, #{$grey-color});
         }
     }
 }

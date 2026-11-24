@@ -4,6 +4,8 @@ title:  macOS install ffmpeg 备注
 author: Albert
 date:   2017-01-09 23:43:30
 categories: tech
+permalink: /tech/2017/01/09/macos-brew-install-ffmpeg-notes.html
+display_date: 2017-01-09
 ---
 
 > `ffmpeg`处理视频,`ffplay`是`ffmpeg`为测试其`codec lib`而开发的基于命令行的播放器。

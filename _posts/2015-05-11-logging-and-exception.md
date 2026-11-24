@@ -4,6 +4,8 @@ layout: post
 title:  "日志,很重要"
 date:   2015-05-11 23:22:00
 categories: tech
+permalink: /tech/2015/05/11/logging-and-exception.html
+display_date: 2015-05-11
 ---
 
 > `写的一手好代码，抓的一手好包。` —— 程序员幸事

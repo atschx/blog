@@ -4,6 +4,8 @@ title:  Angular2 ongoing
 author: Albert
 date:   2017-01-10 20:20:30
 categories: tech
+permalink: /tech/2017/01/10/angular2-ongoing.html
+display_date: 2017-01-10
 ---
 
 前端技术遍地开花，选择最适合自己和团队的。一味的求新注定是索然无味的 `Tech Show` 。

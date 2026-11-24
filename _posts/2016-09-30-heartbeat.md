@@ -4,6 +4,8 @@ title:  心跳，我还活着
 author: Albert
 date:   2016-09-30 23:30:35
 categories: tech
+permalink: /tech/2016/09/30/heartbeat.html
+display_date: 2016-09-30
 ---
 
 ![heartbeat](https://mmbiz.qlogo.cn/mmbiz_png/jdLH3NftFiaaibkY66m8uZiaBfYiaFc3FicFLbUK2Jrp6lN3Ekias3Axkj3EmoPKzDlcu1Jp4Iu0JricZtrB95MeMibaew/0?wx_fmt=png)

@@ -1,26 +1,32 @@
 <header class="site-header">
 
-  <div class="wrapper">
+  <div class="wrapper header-bar">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title" href="{{ '/' | relative_url }}">
+      <span class="site-title__line">write now,</span>
+      <span class="site-title__line">think more <span class="site-title__line--aside">(different)</span></span>
+    </a>
 
-    <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <svg viewBox="0 0 18 15">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+    <div class="header-tools">
+      {% include site-search.html %}
+
+      <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="切换到深色主题" title="切换到深色主题">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M21 14.3A8.5 8.5 0 0 1 9.7 3 7 7 0 1 0 21 14.3z"></path>
         </svg>
-      </a>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 4.5a1 1 0 0 0 1-1V2a1 1 0 1 0-2 0v1.5a1 1 0 0 0 1 1zm0 15a1 1 0 0 0-1 1V22a1 1 0 1 0 2 0v-1.5a1 1 0 0 0-1-1zM6.05 6.05a1 1 0 0 0 0-1.41L5 3.59A1 1 0 0 0 3.59 5l1.05 1.05a1 1 0 0 0 1.41 0zm11.9 11.9a1 1 0 0 0 0 1.41L19 20.41A1 1 0 1 0 20.41 19l-1.05-1.05a1 1 0 0 0-1.41 0zM4.5 12a1 1 0 0 0-1-1H2a1 1 0 1 0 0 2h1.5a1 1 0 0 0 1-1zm17-1H20a1 1 0 1 0 0 2h1.5a1 1 0 1 0 0-2zM6.05 17.95a1 1 0 0 0-1.41 0L3.59 19A1 1 0 1 0 5 20.41l1.05-1.05a1 1 0 0 0 0-1.41zm11.9-11.9a1 1 0 0 0 1.41 0L20.41 5A1 1 0 1 0 19 3.59l-1.05-1.05a1 1 0 0 0 0 1.41zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+        </svg>
+      </button>
 
-      <div class="trigger">
+      <nav class="site-nav">
         {% for page in site.pages %}
           {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title }}</a>
           {% endif %}
         {% endfor %}
-      </div>
-    </nav>
+      </nav>
+    </div>
 
   </div>
 

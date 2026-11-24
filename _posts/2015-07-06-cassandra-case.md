@@ -4,6 +4,8 @@ date: 2015-07-06 23:00:00
 layout: post
 title: Cassandra(四):案例分享
 categories: tech
+permalink: /tech/2015/07/06/cassandra-case.html
+display_date: 2015-07-06
 ---
 
 >  没有最好,只有最适合. 
