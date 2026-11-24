@@ -14,6 +14,12 @@
     justify-content: space-between;
     gap: 24px;
     min-height: var(--header-height, 72px);
+
+    // wrapper clearfix must not become a flex/grid item
+    &::after {
+        content: none;
+        display: none;
+    }
 }
 
 .site-title {
@@ -81,6 +87,57 @@
 
         &:not(:first-child) {
             margin-left: 20px;
+        }
+    }
+}
+
+
+@include media-query($on-palm) {
+    .header-bar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        align-items: center;
+        column-gap: 10px;
+        row-gap: 12px;
+        // only adjust vertical padding; keep .wrapper side padding + safe-area
+        padding-top: 14px;
+        padding-bottom: 16px;
+        min-height: 0;
+    }
+
+    .header-tools {
+        display: contents;
+        margin-left: 0;
+    }
+
+    .site-title {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .site-title__line {
+        white-space: nowrap;
+    }
+
+    .theme-toggle {
+        grid-column: 2;
+        grid-row: 1;
+        width: 44px;
+        height: 44px;
+    }
+
+    .site-nav {
+        grid-column: 3;
+        grid-row: 1;
+
+        .page-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding-left: 2px;
+            padding-right: 0;
+            margin-left: 0;
+            white-space: nowrap;
         }
     }
 }
