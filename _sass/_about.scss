@@ -152,11 +152,17 @@
     color: var(--color-text-muted);
 }
 
+.about-excerpt {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    max-width: 36em;
+}
+
 .about-lines {
     margin: 0;
     padding: 0;
     list-style: none;
-    max-width: 36em;
 }
 
 .about-lines li {
@@ -170,6 +176,38 @@
 
 .about-lines li:last-child {
     margin-bottom: 0;
+}
+
+.about-source {
+    margin: 14px 0 0;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+    color: var(--color-text-muted);
+    overflow-wrap: break-word;
+}
+
+.about-source cite {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.about-source__ref {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.about-source__ref:visited {
+    color: inherit;
+}
+
+.about-source__ref:hover,
+.about-source__ref:focus {
+    color: var(--color-accent);
 }
 
 @media screen and (max-width: $on-laptop) {
@@ -198,6 +236,7 @@
     }
 
     .about-quote,
+    .about-excerpt,
     .about-lines {
         text-align: left;
         max-width: none;
@@ -256,5 +295,11 @@
         font-size: 17px;
         line-height: 1.7;
         margin-bottom: 0.7em;
+    }
+
+    .about-source {
+        margin-top: 12px;
+        font-size: 12px;
+        line-height: 1.6;
     }
 }
