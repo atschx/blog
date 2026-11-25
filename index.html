@@ -38,7 +38,6 @@ layout: default
           <a class="hero-card hero-card--lead" href="{{ post.url | relative_url }}">
             <p class="hero-card__meta">
               <time datetime="{{ post_ymd }}">{{ post_ymd }}</time>
-              {% if post.author %} · {{ post.author }}{% endif %}
             </p>
             <h3 class="hero-card__title">{{ post.title }}</h3>
             {% if excerpt_text != "" %}
@@ -55,7 +54,6 @@ layout: default
           <a class="hero-card" href="{{ post.url | relative_url }}">
             <p class="hero-card__meta">
               <time datetime="{{ post_ymd }}">{{ post_ymd }}</time>
-              {% if post.author %} · {{ post.author }}{% endif %}
             </p>
             <h3 class="hero-card__title">{{ post.title }}</h3>
             {% if excerpt_text != "" %}
@@ -76,6 +74,7 @@ layout: default
       <section class="post-index" aria-labelledby="all-posts-heading">
         <h2 id="all-posts-heading" class="home-section-title">更多文章</h2>
         <ul class="post-list post-list--compact">
+          {% assign recent_count = 0 %}
           {% for post in site.posts %}
             {% assign is_featured = false %}
             {% for featured in featured_posts %}
@@ -84,6 +83,8 @@ layout: default
               {% endif %}
             {% endfor %}
             {% unless is_featured %}
+              {% assign recent_count = recent_count | plus: 1 %}
+              {% if recent_count <= 8 %}
               {% include post-ymd.html dated=post %}
               {% assign row_label = post.categories.first | default: post.tags.first %}
           <li>
@@ -97,9 +98,18 @@ layout: default
               {% endif %}
             </a>
           </li>
+              {% endif %}
             {% endunless %}
           {% endfor %}
         </ul>
+        {% include post-ymd.html dated=site.posts.first %}
+        {% assign latest_year = post_ymd | slice: 0, 4 %}
+        {% include post-ymd.html dated=site.posts.last %}
+        {% assign earliest_year = post_ymd | slice: 0, 4 %}
+        <div class="archive-more-foot">
+          <p class="archive-more-foot__meta">{{ earliest_year }}—{{ latest_year }} 的文章记录</p>
+          <a class="archive-more-foot__link" href="{{ '/archive/' | relative_url }}">全部 {{ site.posts | size }} 篇 · 按年/月浏览 →</a>
+        </div>
 
         <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
       </section>

@@ -1,0 +1,507 @@
+/**
+ * Article reading page: 680px column, Chinese-friendly quotes,
+ * distinct date vs category, no visible author chip.
+ */
+
+.page-article .page-content {
+    padding-top: 36px;
+}
+
+@include media-query($on-palm) {
+    .page-article .page-content {
+        padding-top: 24px;
+    }
+}
+
+.page-article .post,
+.post-reading {
+    max-width: 680px;
+    margin: 0 auto 72px;
+}
+
+.post-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    flex-wrap: wrap;
+    margin: 0 0 28px;
+}
+
+.post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    min-height: 44px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+.post-back::before {
+    content: "←";
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-accent);
+}
+
+.post-back:visited {
+    color: var(--color-text-muted);
+}
+
+.post-back:hover,
+.post-back:focus {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.post-archive-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.post-archive-link:visited {
+    color: var(--color-accent);
+}
+
+.post-archive-link:hover,
+.post-archive-link:focus {
+    color: var(--color-accent-hover, var(--color-accent));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.page-article .post-header {
+    margin-bottom: 2.25rem;
+}
+
+.page-article .post-title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.28;
+    letter-spacing: 0;
+    margin: 0 0 16px;
+    color: var(--color-text);
+}
+
+.post-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 0;
+}
+
+.page-article .post-date,
+.post-meta-row .post-date {
+    display: inline;
+    min-height: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.post-cat {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0 10px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-tag-text);
+    background: var(--color-tag-bg);
+    text-decoration: none;
+}
+
+.post-cat:visited {
+    color: var(--color-tag-text);
+}
+
+.post-cat:hover,
+.post-cat:focus {
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+    text-decoration: none;
+}
+
+.page-article .post-content {
+    margin-bottom: 0;
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--color-text);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+.page-article .post-content p {
+    margin: 0 0 1.15em;
+}
+
+.page-article .post-content p:last-child {
+    margin-bottom: 0;
+}
+
+.page-article .post-content h2,
+.page-article .post-content h3,
+.page-article .post-content h4 {
+    color: var(--color-text);
+    letter-spacing: 0;
+}
+
+.page-article .post-content h2 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 2.45em 0 0.7em;
+}
+
+.page-article .post-content h3 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 2em 0 0.55em;
+}
+
+.page-article .post-content h4 {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.45;
+    margin: 1.65em 0 0.45em;
+}
+
+.page-article .post-content h2 + h3,
+.page-article .post-content h3 + h4,
+.page-article .post-content h4 + h4 {
+    margin-top: 0.8em;
+}
+
+.page-article .post-content ul,
+.page-article .post-content ol {
+    margin: 0 0 1.25em 1.35em;
+}
+
+.page-article .post-content li {
+    margin: 0 0 0.4em;
+    line-height: 1.75;
+    padding-left: 0.15em;
+}
+
+.page-article .post-content li > ul,
+.page-article .post-content li > ol {
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+}
+
+.page-article .post-content li:last-child {
+    margin-bottom: 0;
+}
+
+.page-article .post-content blockquote {
+    margin: 1.5em 0;
+    padding: 0.15em 0 0.15em 1.15em;
+    border-left: 3px solid var(--color-accent);
+    color: var(--color-text);
+    font-size: 1em;
+    font-style: normal;
+    letter-spacing: 0;
+    background: transparent;
+}
+
+.page-article .post-content blockquote p {
+    margin: 0 0 0.7em;
+    font-style: normal;
+    letter-spacing: 0;
+}
+
+.page-article .post-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.page-article .post-content > blockquote:first-child {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0 0 2.1em;
+    padding-left: 1.1em;
+    color: var(--color-text);
+}
+
+.page-article .post-content img,
+.post-figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-card-bg);
+}
+
+.post-figure {
+    margin: 2em 0;
+    max-width: 100%;
+}
+
+.post-figure figcaption {
+    margin-top: 8px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+}
+
+.page-article .post-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1.4em 0;
+}
+
+.page-article .post-content code,
+.page-article .post-content pre {
+    font-family: var(--font-mono);
+}
+
+.page-article .post-content :not(pre) > code {
+    font-size: 0.86em;
+    font-weight: 450;
+    line-height: 1.4;
+    padding: 0.12em 0.38em;
+    border: 1px solid var(--color-code-border);
+    border-radius: 4px;
+    background: var(--color-code-bg);
+    color: var(--color-text);
+    overflow-wrap: anywhere;
+}
+
+.page-article .post-content pre,
+.page-article .post-content .highlight,
+.page-article .post-content .highlighter-rouge {
+    border: 1px solid var(--color-code-border);
+    border-radius: 8px;
+    background: var(--color-syntax-bg);
+    max-width: 100%;
+}
+
+.page-article .post-content .highlighter-rouge,
+.page-article .post-content figure.highlight {
+    margin: 1.4em 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.page-article .post-content pre {
+    margin: 1.4em 0;
+    padding: 16px 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 13.5px;
+    line-height: 1.6;
+    tab-size: 2;
+    max-width: 100%;
+}
+
+.page-article .post-content .highlighter-rouge pre,
+.page-article .post-content .highlight pre {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.page-article .post-content pre code {
+    font-size: inherit;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    color: inherit;
+}
+
+.page-article .post-content strong {
+    font-weight: 600;
+}
+
+.page-article .post-content a {
+    text-underline-offset: 3px;
+}
+
+.post-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 32px;
+    margin: 3.25rem 0 0;
+    padding: 1.75rem 0 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.post-pager__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.post-pager__item:visited {
+    color: var(--color-text);
+}
+
+.post-pager__item:hover,
+.post-pager__item:focus {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.post-pager__item--next {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.post-pager__dir {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+}
+
+.post-pager__title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-text);
+    overflow-wrap: break-word;
+}
+
+.post-pager__date {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-muted);
+}
+
+.post-pager__item:hover .post-pager__title,
+.post-pager__item:focus .post-pager__title {
+    color: var(--color-accent);
+}
+
+@media screen and (max-width: $on-laptop) {
+    .page-article .post-title {
+        font-size: 32px;
+    }
+
+    .page-article .post-content > blockquote:first-child {
+        font-size: 20px;
+    }
+}
+
+@include media-query($on-palm) {
+    .page-article .post,
+    .post-reading {
+        margin-bottom: 56px;
+    }
+
+    .post-toolbar {
+        margin-bottom: 20px;
+    }
+
+    .post-back {
+        min-height: 44px;
+        padding-right: 8px;
+    }
+
+    .page-article .post-title {
+        font-size: 28px;
+        line-height: 1.3;
+        margin-bottom: 14px;
+    }
+
+    .page-article .post-header {
+        margin-bottom: 1.75rem;
+    }
+
+    .page-article .post-content {
+        font-size: 17px;
+        line-height: 1.85;
+    }
+
+    .page-article .post-content h2 {
+        font-size: 22px;
+        margin-top: 2.1em;
+    }
+
+    .page-article .post-content h3 {
+        font-size: 19px;
+    }
+
+    .page-article .post-content h4 {
+        font-size: 16.5px;
+    }
+
+    .page-article .post-content > blockquote:first-child {
+        font-size: 19px;
+        margin-bottom: 1.7em;
+    }
+
+    .page-article .post-content pre {
+        font-size: 12.5px;
+        padding: 14px 14px;
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+
+    .post-pager {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 2.5rem;
+    }
+
+    .post-pager__item--next {
+        align-items: flex-start;
+        text-align: left;
+        padding-top: 4px;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .post-pager__title {
+        font-size: 17px;
+    }
+}

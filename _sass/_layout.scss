@@ -85,6 +85,16 @@
             text-decoration: none;
         }
 
+        &[aria-current="page"] {
+            color: var(--color-text);
+            box-shadow: inset 0 -2px 0 var(--color-accent);
+        }
+
+        &[aria-current="page"]:hover,
+        &[aria-current="page"]:focus {
+            color: var(--color-accent);
+        }
+
         &:not(:first-child) {
             margin-left: 20px;
         }
