@@ -19,22 +19,22 @@ permalink: /about/
     </p>
 
     <section class="about-block" aria-labelledby="jobs-label">
-      <h2 class="about-block__label" id="jobs-label">Steve Jobs</h2>
-      <ul class="about-pairs">
+      <p class="about-block__label" id="jobs-label">Steve Jobs</p>
+      <div class="about-pairs">
         {% for pair in site.data.about_quotes.jobs %}
         {% include about-pair.html en=pair.en zh=pair.zh %}
         {% endfor %}
-      </ul>
+      </div>
       <p class="about-attr"><span lang="en">— Steve Jobs</span> · <span lang="zh-Hans">史蒂夫·乔布斯</span></p>
     </section>
 
-    <figure class="about-block">
-      <h2 class="about-block__label" id="benjamin-label">Benjamin Button</h2>
-      <ul class="about-pairs" aria-labelledby="benjamin-label">
+    <figure class="about-block" aria-labelledby="benjamin-label">
+      <p class="about-block__label" id="benjamin-label">Benjamin Button</p>
+      <div class="about-pairs">
         {% for pair in site.data.about_quotes.benjamin %}
         {% include about-pair.html en=pair.en zh=pair.zh tight=pair.tight %}
         {% endfor %}
-      </ul>
+      </div>
       <figcaption class="about-source">
         电影《本杰明·巴顿奇事》（<cite lang="en">The Curious Case of Benjamin Button</cite>，2008）剧本，编剧 Eric Roth。中文为自译。<a class="about-source__ref" href="https://www.falmouthpubliclibrary.org/blog/the-curious-case-of-misquotation/">出处考证</a>
       </figcaption>
