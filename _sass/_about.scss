@@ -151,11 +151,12 @@ html[data-theme="dark"] .about-page {
 .about-pairs {
     margin: 0;
     padding: 0;
-    list-style: none;
+    text-align: left;
 }
 
 .about-pair {
     margin: 0 0 var(--about-pair-gap);
+    text-align: left;
 }
 
 .about-pair:last-child {
