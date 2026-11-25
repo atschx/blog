@@ -107,7 +107,7 @@ exclude_from_nav: true
         {% endunless %}
       {% endif %}
     {% endfor %}
-    {% assign day_list = day_keys | split: "," %}
+    {% assign day_list = day_keys | split: "," | reverse %}
     {% assign day_count = day_list | size %}
 
   <div class="archive-month-block" id="y{{ year }}-{{ m }}">

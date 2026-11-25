@@ -38,7 +38,6 @@ layout: default
           <a class="hero-card hero-card--lead" href="{{ post.url | relative_url }}">
             <p class="hero-card__meta">
               <time datetime="{{ post_ymd }}">{{ post_ymd }}</time>
-              {% if post.author %} · {{ post.author }}{% endif %}
             </p>
             <h3 class="hero-card__title">{{ post.title }}</h3>
             {% if excerpt_text != "" %}
@@ -55,7 +54,6 @@ layout: default
           <a class="hero-card" href="{{ post.url | relative_url }}">
             <p class="hero-card__meta">
               <time datetime="{{ post_ymd }}">{{ post_ymd }}</time>
-              {% if post.author %} · {{ post.author }}{% endif %}
             </p>
             <h3 class="hero-card__title">{{ post.title }}</h3>
             {% if excerpt_text != "" %}
