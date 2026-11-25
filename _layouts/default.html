@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body{% if page.url == "/" %} class="page-home"{% endif %}>
+  <body{% if page.url == "/" %} class="page-home"{% elsif page.layout == "post" %} class="page-article"{% elsif page.layout == "about" %} class="page-about"{% elsif page.layout == "archive" %} class="page-archive"{% endif %}>
 
     {% include header.html %}
 
@@ -17,6 +17,12 @@
 
     <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
     <script src="{{ '/assets/js/site-search.js' | relative_url }}" defer></script>
+    {% if page.layout == "post" %}
+    <script src="{{ '/assets/js/post-enhance.js' | relative_url }}" defer></script>
+    {% endif %}
+    {% if page.layout == "archive" %}
+    <script src="{{ '/assets/js/archive-nav.js' | relative_url }}" defer></script>
+    {% endif %}
 
   </body>
 

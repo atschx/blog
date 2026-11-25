@@ -1,19 +1,57 @@
 ---
 layout: default
-type: post
 ---
-<div class="post">
+{% include post-ymd.html dated=page %}
+{% assign page_ymd = post_ymd %}
+{% assign archive_year = page_ymd | slice: 0, 4 %}
+{% assign archive_month_padded = page_ymd | slice: 5, 2 %}
+{% assign archive_month = archive_month_padded | plus: 0 %}
+{% assign cat_label = page.categories.first | default: page.tags.first %}
 
-	<header class="post-header">
-		<h1 class="post-title">{{ page.title }}</h1>
-		{% include post-ymd.html dated=page %}
-		<p class="post-meta">{{ post_ymd }}{% if page.author %} · <a
-				href="https://github.com/atschx">{{ page.author }}</a>{% endif %}{% if page.meta %} · {{ page.meta }}{%
-			endif %}</p>
-	</header>
+<div class="post post-reading">
+  <div class="post-toolbar">
+    <a class="post-back" href="{{ '/' | relative_url }}">返回首页</a>
+    <a class="post-archive-link" href="{{ '/archive/' | relative_url }}#y{{ archive_year }}-{{ archive_month_padded }}">归档 · {{ archive_year }}年{{ archive_month }}月</a>
+  </div>
 
-	<article class="post-content">
-		{{ content }}
-	</article>
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta-row">
+      <time class="post-date" datetime="{{ page_ymd }}">{{ page_ymd }}</time>
+      {% if cat_label %}
+      <a class="post-cat" href="{{ '/' | relative_url }}?q={{ cat_label | url_encode }}">{{ cat_label }}</a>
+      {% endif %}
+      {% if page.author %}
+      <span class="visually-hidden">作者 {{ page.author }}</span>
+      {% endif %}
+    </p>
+  </header>
 
+  <article class="post-content"{% if page.author %} itemscope itemtype="https://schema.org/BlogPosting"{% endif %}>
+    {% if page.author %}<meta itemprop="author" content="{{ page.author }}">{% endif %}
+    {{ content }}
+  </article>
+
+  {% if page.previous or page.next %}
+  <nav class="post-pager" aria-label="相邻文章">
+    {% if page.previous %}
+      {% include post-ymd.html dated=page.previous %}
+    <a class="post-pager__item post-pager__item--prev" href="{{ page.previous.url | relative_url }}">
+      <span class="post-pager__dir">上一篇</span>
+      <span class="post-pager__title">{{ page.previous.title }}</span>
+      <span class="post-pager__date">{{ post_ymd }}</span>
+    </a>
+    {% else %}
+    <span class="post-pager__item" aria-hidden="true"></span>
+    {% endif %}
+    {% if page.next %}
+      {% include post-ymd.html dated=page.next %}
+    <a class="post-pager__item post-pager__item--next" href="{{ page.next.url | relative_url }}">
+      <span class="post-pager__dir">下一篇</span>
+      <span class="post-pager__title">{{ page.next.title }}</span>
+      <span class="post-pager__date">{{ post_ymd }}</span>
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
 </div>
