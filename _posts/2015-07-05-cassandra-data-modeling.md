@@ -4,6 +4,7 @@ date: 2015-07-05
 layout: post
 title: Cassandra(三):面向查询建模
 categories: tech
+published: false
 ---
 
 >  Cassandra data modeling focuses on the queries. 

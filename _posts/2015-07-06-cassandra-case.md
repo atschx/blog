@@ -6,6 +6,7 @@ title: Cassandra(四):案例分享
 categories: tech
 permalink: /tech/2015/07/06/cassandra-case.html
 display_date: 2015-07-06
+published: false
 ---
 
 >  没有最好,只有最适合. 
@@ -22,14 +23,13 @@ cqlsh:statistic> select
              ... limit 30;
 </pre>
 
-![query_case_01](http://atschx.b0.upaiyun.com/cassandra/cassandra_case_query_01.png)
 
 <pre>
-[sunchanghao@vm_10_119 cassandra]$ bin/nodetool cfstats statistic.protocols_order_by_bytes
+[user@host cassandra]$ bin/nodetool cfstats statistic.protocols_order_by_bytes
 Keyspace: statistic
 	Read Count: 12
 	Read Latency: 1.9284166666666667 ms.
-	Write Count: 7485502
+	Write Count: 8200000
 	Write Latency: 0.018335492796608698 ms.
 	Pending Flushes: 0
 		Table: protocols_order_by_bytes

@@ -8,7 +8,6 @@ permalink: /work/2015/05/19/rome-was-not-built-in-a-day.html
 display_date: 2015-05-19
 ---
 
-![rome](http://7xidkg.com1.z0.glb.clouddn.com/rome-Italie-768x1366.jpg)
 
 > 好的架构不是一蹴而就的。
 

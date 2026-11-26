@@ -8,4 +8,3 @@ categories: life
 
 > printf("hello,world\n"); 
 
-![hello-world](http://7xidkg.com1.z0.glb.clouddn.com/world.svg)

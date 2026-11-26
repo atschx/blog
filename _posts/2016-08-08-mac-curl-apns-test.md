@@ -19,11 +19,11 @@ display_date: 2016-08-08
 
 ```bash
 ./curl -i --http2 \
--E /tmp/aps_starred.pem \
--d '{"aps":{"alert":"datapacket aha..","badge":1,"sound":"push.caf"}}' \
+-E /tmp/aps_demo.pem \
+-d '{"aps":{"alert":"Test message","badge":1,"sound":"push.caf"}}' \
 -H 'Content-Type: application/json; charset=UTF-8' \
--H 'apns-topic:im.cia.Starred' \
-"https://api.development.push.apple.com/3/device/7df0cc3e04dbe0208491511df7b4b0f1f915ca6d9550f351d6a12e81a158b15f" 
+-H 'apns-topic:com.example.app' \
+"https://api.development.push.apple.com/3/device/DEVICE_TOKEN_PLACEHOLDER_64_HEX_CHARACTERS_HERE_REDACTED_FOR_SECURITY" 
 ```
 
 **注意** `apns-topic ` 需要根据证书情况来：
