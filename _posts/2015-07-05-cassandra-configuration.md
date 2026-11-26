@@ -4,6 +4,7 @@ date: 2015-07-05
 layout: post
 title: Cassandra(二):安装及配置
 categories: tech
+published: false
 ---
 
 > $cassandra_home/conf/cassandra-env.sh 
