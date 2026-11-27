@@ -44,5 +44,34 @@ permalink: /about/
         电影《本杰明·巴顿奇事》（<cite lang="en">The Curious Case of Benjamin Button</cite>，2008）剧本，编剧 Eric Roth。中文为自译。<a class="about-source__ref" href="https://www.falmouthpubliclibrary.org/blog/the-curious-case-of-misquotation/">出处考证</a>
       </figcaption>
     </figure>
+
+    <section class="about-block about-works" aria-labelledby="about-works-label">
+      <h2 id="about-works-label" class="about-block__label">
+        <span lang="en">Selected work</span>
+        <span lang="zh-Hans">代表作品</span>
+      </h2>
+      <ul class="about-works__list">
+        <li class="about-works__item">
+          <a class="about-works__name" href="https://github.com/atschx/fs-monitor">FS-Monitor ↗</a>
+          <p class="about-works__en" lang="en">A team-made macOS tool that explains how a chosen folder grows. It is a test prerelease.</p>
+          <p class="about-works__zh" lang="zh-Hans">与团队一起做的 macOS 目录增长说明工具，目前是测试预发布。</p>
+        </li>
+        <li class="about-works__item">
+          <a class="about-works__name" href="https://github.com/atschx/cosmic-elements-exhibit">Cosmic Elements Exhibit ↗</a>
+          <p class="about-works__en" lang="en">A web recreation of the Shanghai Astronomy Museum's "Cosmic Nucleosynthesis" exhibit.</p>
+          <p class="about-works__zh" lang="zh-Hans">上海天文馆「宇宙元素起源表」互动展陈的网页复刻。</p>
+          <p class="about-works__demo">
+            <a class="about-works__demo-link" href="https://atschx.me/cosmic-elements-exhibit/" lang="en">Live demo ↗</a>
+            <a class="about-works__demo-link" href="https://atschx.me/cosmic-elements-exhibit/" lang="zh-Hans">演示 ↗</a>
+          </p>
+        </li>
+        <li class="about-works__item">
+          <a class="about-works__name" href="https://github.com/atschx/site-cia-im">cia.im ↗</a>
+          <p class="about-works__en" lang="en">A personal blog and photography site, built with Gatsby.</p>
+          <p class="about-works__zh" lang="zh-Hans">用 Gatsby 做的个人博客与摄影网站。</p>
+        </li>
+      </ul>
+      <p class="about-works__note">「摄影 — 尚未开放」</p>
+    </section>
   </div>
 </div>
