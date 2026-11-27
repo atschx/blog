@@ -71,7 +71,7 @@ permalink: /about/
           <p class="about-works__zh" lang="zh-Hans">用 Gatsby 做的个人博客与摄影网站。</p>
         </li>
       </ul>
-      <p class="about-works__note">「摄影 — 尚未开放」</p>
+      <p class="about-works__note">摄影 — 尚未开放</p>
     </section>
   </div>
 </div>
